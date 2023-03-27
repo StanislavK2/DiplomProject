@@ -60,7 +60,7 @@
                </font>
             </Text>
             <Button fx:id="btnGoTimeSheet" layoutX="116.0" layoutY="141.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="170.0" style="-fx-background-color: #dabfbf;" text="Табель рабочего времении" />
-            <Button fx:id="btnGoEmploumentContract" layoutX="116.0" layoutY="172.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="170.0" style="-fx-background-color: #dabfbf;" text="Тудовой Договор" />
+            <Button fx:id="btnGoDismissal" layoutX="116.0" layoutY="172.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="170.0" style="-fx-background-color: #dabfbf;" text="Увольнение" />
             <Button fx:id="btnGoNewPerson" layoutX="116.0" layoutY="204.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="170.0" style="-fx-background-color: #dabfbf;" text="Сотрудник" />
          </children>
       </AnchorPane>

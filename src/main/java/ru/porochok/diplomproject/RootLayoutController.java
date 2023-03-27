@@ -25,6 +25,9 @@ public class RootLayoutController {
     @FXML
     private Text textViewNowData;
 
+    @FXML
+    private Button btnGoDismissal;
+
     public void initialize() {
         btnGoNewPerson.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
             try {
@@ -49,6 +52,21 @@ public class RootLayoutController {
                 Stage stage = new Stage();
                 stage.setResizable(false);
                 stage.setTitle("Табель рабочего времени");
+                stage.setScene(scene);
+                stage.show();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+
+        btnGoDismissal.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("dismissal_layout.fxml"));
+                Scene scene = new Scene(fxmlLoader.load(), 1424, 572);
+                Stage stage = new Stage();
+                stage.setResizable(false);
+                stage.setTitle("Увольнение");
                 stage.setScene(scene);
                 stage.show();
             } catch (Exception e) {

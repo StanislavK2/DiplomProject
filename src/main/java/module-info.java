@@ -8,4 +8,6 @@ module ru.porochok.diplomproject {
     exports ru.porochok.diplomproject;
     exports ru.porochok.diplomproject.POJO;
     opens ru.porochok.diplomproject.POJO to javafx.fxml;
+    exports ru.porochok.diplomproject.dismissal;
+    opens ru.porochok.diplomproject.dismissal to javafx.fxml;
 }

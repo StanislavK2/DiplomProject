@@ -143,16 +143,13 @@ public class PersonLayoutController {
     ObservableList<Person> targetPersonObservableList;
     ObservableList<Person> personObservableSearchList;
 
-    ObservableList<String> personPosts = FXCollections.observableArrayList("HR", "Junior", "Middle", "Senior", "Team Lead", "Бухгалтер");
-    ObservableList<String> personFamilyComposition = FXCollections.observableArrayList("Женат", "Женат есть Дети", "Жената есть Дети", "Не жената", "Холост");
-
     public void initialize() {
         dbPerson = new DbPerson();
 
-        comboBoxPersonPost.setItems(personPosts);
-        comboBoxPersonFamylePosition.setItems(personFamilyComposition);
-        comboBoxPersonPost.setValue("Jun");
-        comboBoxPersonFamylePosition.setValue("Холост");
+        comboBoxPersonPost.setItems(DbPerson.getListPosts());
+        comboBoxPersonFamylePosition.setItems(DbPerson.getListFamilyState());
+        comboBoxPersonPost.setValue(DbPerson.getListPosts().get(0));
+        comboBoxPersonFamylePosition.setValue(DbPerson.getListFamilyState().get(0));
 
         col_id.setCellValueFactory(new PropertyValueFactory<>("id"));
         col_surname.setCellValueFactory(new PropertyValueFactory<>("surname"));
@@ -201,14 +198,8 @@ public class PersonLayoutController {
 
         btnExportWord.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
 
-            /*XWPFDocument doc = new XWPFDocument();
-            XWPFParagraph tmpParagraph = doc.createParagraph();
-            XWPFRun tmpRun = tmpParagraph.createRun();*/
             personObservableList = DbPerson.getPersons();
-            /*personObservableList.forEach(it -> {
-                dd = dd + it.toString() + "\n";
-            });*/
-            //tmpRun.setText("cewce");
+
             Date date = new Date();
             String listString = personObservableList.stream().map(Object::toString)
                     .collect(Collectors.joining("\n"));
@@ -217,21 +208,15 @@ public class PersonLayoutController {
             String enter = "\n\n";
             String interval = "=========================================================================";
 
-            String folder = "C:\\Users\\pmayk\\Desktop\\Отчёты\\";
+            String folder = "C:\\Users\\pmayk\\OneDrive\\Документы\\Отчёты Сотрудников";
 
             String fileName = "Otchet " + date.getHours() + "." + date.getMinutes() + ".doc";
-            // Dialog
-            /*final Stage dialog = new Stage();
-            dialog.initModality(Modality.APPLICATION_MODAL);
-            VBox dialogVbox = new VBox(20);
-            dialogVbox.getChildren().add(new Text("Файл создан"));
-            Scene dialogScene = new Scene(dialogVbox, 300, 200);
-            dialog.setScene(dialogScene);*/
 
+            // Dialog
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Файл создан!");
             alert.setHeaderText("Результат:");
-            alert.setContentText("Файл сохранен в папке: Отчёты!");
+            alert.setContentText("Файл сохранен в папке: Отчёты Сотрудников!");
 
 
             //
@@ -286,7 +271,7 @@ public class PersonLayoutController {
             String enter = "\n\n";
             String interval = "=========================================================================";
 
-            String folder = "C:\\Users\\pmayk\\Desktop\\Отчёты\\";
+            String folder = "C:\\Users\\pmayk\\OneDrive\\Документы\\Отчёты Сотрудников";
 
             String fileName = "Solo Otchet " + date.getHours() + "." + date.getMinutes() + ".doc";
 
@@ -295,7 +280,7 @@ public class PersonLayoutController {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Файл создан!");
             alert.setHeaderText("Результат:");
-            alert.setContentText("Файл сохранен в папке: Отчёты!");
+            alert.setContentText("Файл сохранен в папке: Отчёты Сотудников!");
 
             //
 

@@ -65,7 +65,7 @@ public class DbPerson extends DbUtils {
 
         PreparedStatement preparedStatement = getDbConnection(dbConn).prepareStatement(sql);
 
-        preparedStatement.setInt(1, id);
+        preparedStatement.setLong(1, id);
 
         preparedStatement.executeUpdate();
     }
@@ -126,4 +126,38 @@ public class DbPerson extends DbUtils {
         }
         return listPersons;
     }
+
+    public static ObservableList<String> getListFamilyState() {
+        ObservableList<String> list = FXCollections.observableArrayList();
+
+        try {
+            PreparedStatement preparedStatement = getDbConnection(dbConn).prepareStatement("SELECT * FROM family_composition");
+            ResultSet res = preparedStatement.executeQuery();
+
+            while (res.next()) {
+                list.add(res.getString("title_composition"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    public static ObservableList<String> getListPosts() {
+        ObservableList<String> list = FXCollections.observableArrayList();
+
+        try {
+            PreparedStatement preparedStatement = getDbConnection(dbConn).prepareStatement("SELECT * FROM post");
+            ResultSet res = preparedStatement.executeQuery();
+
+            while (res.next()) {
+                list.add(res.getString("title_post"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+
 }
