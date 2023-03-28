@@ -125,7 +125,7 @@ public class ContractLayoutController {
     public void initialize() {
         dbEmploymentContract = new DbEmploymentContract();
 
-        comboBoxNameAndIdPerson.setItems((ObservableList<String>) list);
+        comboBoxNameAndIdPerson.setItems();
 
         col_id.setCellValueFactory(new PropertyValueFactory<>("idContract"));
         col_deportment.setCellValueFactory(new PropertyValueFactory<>("nameDeportment"));

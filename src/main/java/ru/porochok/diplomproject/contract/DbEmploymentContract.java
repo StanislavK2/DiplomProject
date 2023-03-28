@@ -164,7 +164,7 @@ public class DbEmploymentContract extends DbUtils {
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-        return listPersons;
+        return listPersons; // tyt
     }
 
     public static ObservableList<EmploymentContract> sortContractForPlaceToWork(String placeToWork) {
