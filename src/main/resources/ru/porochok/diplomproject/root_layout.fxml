@@ -62,6 +62,8 @@
             <Button fx:id="btnGoTimeSheet" layoutX="116.0" layoutY="141.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="170.0" style="-fx-background-color: #dabfbf;" text="Табель рабочего времении" />
             <Button fx:id="btnGoDismissal" layoutX="116.0" layoutY="172.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="170.0" style="-fx-background-color: #dabfbf;" text="Увольнение" />
             <Button fx:id="btnGoNewPerson" layoutX="116.0" layoutY="204.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="170.0" style="-fx-background-color: #dabfbf;" text="Сотрудник" />
+            <Button fx:id="btnGoDepartment" layoutX="116.0" layoutY="235.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="170.0" style="-fx-background-color: #dabfbf;" text="Отделы" />
+            <Button fx:id="btnGoContract" layoutX="116.0" layoutY="266.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="170.0" style="-fx-background-color: #dabfbf;" text="Трудовой договор" />
          </children>
       </AnchorPane>
    </children>

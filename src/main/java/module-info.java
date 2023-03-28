@@ -10,4 +10,6 @@ module ru.porochok.diplomproject {
     opens ru.porochok.diplomproject.POJO to javafx.fxml;
     exports ru.porochok.diplomproject.dismissal;
     opens ru.porochok.diplomproject.dismissal to javafx.fxml;
+    exports ru.porochok.diplomproject.department;
+    opens ru.porochok.diplomproject.department to javafx.fxml;
 }

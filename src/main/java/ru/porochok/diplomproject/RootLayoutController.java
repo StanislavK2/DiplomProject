@@ -28,6 +28,11 @@ public class RootLayoutController {
     @FXML
     private Button btnGoDismissal;
 
+    @FXML
+    private Button btnGoDepartment;
+    @FXML
+    private Button btnGoContract;
+
     public void initialize() {
         btnGoNewPerson.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
             try {
@@ -67,6 +72,36 @@ public class RootLayoutController {
                 Stage stage = new Stage();
                 stage.setResizable(false);
                 stage.setTitle("Увольнение");
+                stage.setScene(scene);
+                stage.show();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+
+        btnGoDepartment.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("deportament.fxml"));
+                Scene scene = new Scene(fxmlLoader.load(), 723, 572);
+                Stage stage = new Stage();
+                stage.setResizable(false);
+                stage.setTitle("Отдел");
+                stage.setScene(scene);
+                stage.show();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+
+        btnGoContract.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("employment_contract.fxml"));
+                Scene scene = new Scene(fxmlLoader.load(), 1582, 625);
+                Stage stage = new Stage();
+                stage.setResizable(false);
+                stage.setTitle("Трудовой договор");
                 stage.setScene(scene);
                 stage.show();
             } catch (Exception e) {

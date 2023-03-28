@@ -55,7 +55,6 @@ public class DbDismissal extends DbUtils {
             e.printStackTrace();
         }
         return list;
-
     }
 
     public static ObservableList<Dismissal> searchDismissalForDismissalId(int idDismissal) throws RuntimeException {

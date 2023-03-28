@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import ru.porochok.diplomproject.POJO.NameCompany;
 import ru.porochok.diplomproject.POJO.Person;
+import ru.porochok.diplomproject.POJO.PersonTwoFeild;
 import ru.porochok.diplomproject.util.DbUtils;
 
 import java.sql.*;
@@ -32,8 +33,8 @@ public class DbPerson extends DbUtils {
         preparedStatement.executeUpdate();
     }
 
-    public static ObservableList<Person> getTargetPerson(String passportNumber) {
-        ObservableList<Person> listPersons = FXCollections.observableArrayList();
+    public static ObservableList<String> getTargetPerson(String passportNumber) {
+        ObservableList<PersonTwoFeild> listPersons = FXCollections.observableArrayList();
         String sql = "SELECT * FROM person WHERE passport_number = ?";
         try {
             PreparedStatement preparedStatement = getDbConnection(dbConn).prepareStatement(sql);
@@ -57,7 +58,11 @@ public class DbPerson extends DbUtils {
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-        return listPersons;
+        return listPersons.stream().map(
+                gg -> {
+                    String.valueOf(gg.getId()) + gg.getSurname()
+                }
+        );
     }
 
     public void deletePerson(int id) throws SQLException, ClassNotFoundException {
