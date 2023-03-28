@@ -10,6 +10,7 @@ import ru.porochok.diplomproject.department.DeportmentLayoutController;
 import ru.porochok.diplomproject.util.DbUtils;
 
 import java.sql.*;
+import java.util.stream.Collectors;
 
 public class DbEmploymentContract extends DbUtils {
 
@@ -84,6 +85,7 @@ public class DbEmploymentContract extends DbUtils {
         }
         return list;
     }
+
     public static ObservableList<EmploymentContract> getAllContracts() {
         ObservableList<EmploymentContract> list = FXCollections.observableArrayList();
         String sql = "SELECT * FROM employment_contract";
@@ -150,7 +152,7 @@ public class DbEmploymentContract extends DbUtils {
         return list;
     }
 
-    public static ObservableList<PersonTwoFeild> getPerson() {
+    public static ObservableList<String> getPerson() {
         ObservableList<PersonTwoFeild> listPersons = FXCollections.observableArrayList();
         String sql = "SELECT id_person, person_surname FROM person";
         try {
@@ -164,7 +166,9 @@ public class DbEmploymentContract extends DbUtils {
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-        return listPersons; // tyt
+        return (ObservableList<String>) listPersons.stream()
+                .map(personTwoFeild -> personTwoFeild.getId() + " " + personTwoFeild.getSurname())
+                .collect(Collectors.toList());
     }
 
     public static ObservableList<EmploymentContract> sortContractForPlaceToWork(String placeToWork) {
